@@ -1,4 +1,6 @@
 const myLibrary = [];
+const booksSection = document.querySelector(".books");
+console.log(booksSection);
 
 function Book(id, title, author, pages, read) {
   if (!new.target) {
@@ -23,7 +25,12 @@ function addBook(id, title, author, pages, read) {
 }
 
 function displayBooks() {
-  myLibrary.forEach((book) => console.log(book));
+  myLibrary.forEach((book) => {
+    // console.log(book);
+    const bookArticle = document.createElement("article");
+    bookArticle.innerHTML = `<h2>${book.title}</h2><h3>${book.author}</h3><h4>${book.pages} pages</h4>`;
+    booksSection.appendChild(bookArticle);
+  });
 }
 
 addBook(self.crypto.randomUUID(), "Dream Count", "CNA", 400, false);
