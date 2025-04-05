@@ -20,25 +20,39 @@ closeBtn.addEventListener("click", () => {
 
 submitBtn.addEventListener("click", (event) => {
   event.preventDefault();
-  addBook(self.crypto.randomUUID(), title, author, pages, read);
+
+  // Don't add book with undefined attributes
+  if (title && author && pages) {
+    // Don't add previously added book
+    const booksInLibrary = myLibrary.filter(
+      (book) =>
+        book.title === title.toUpperCase() &&
+        book.author === author.toUpperCase()
+    );
+    if (booksInLibrary.length === 0) {
+      addBook(self.crypto.randomUUID(), title, author, pages, read);
+    }
+  }
   dialog.close();
   displayBooks();
 });
 
 titleInput.addEventListener("change", (event) => {
-  title = event.target.value;
+  title = event.target.value.trim();
 });
 
 authorInput.addEventListener("change", (event) => {
-  author = event.target.value;
+  author = event.target.value.trim();
 });
 
 pagesInput.addEventListener("change", (event) => {
-  pages = parseInt(event.target.value);
+  pages = parseInt(event.target.value.trim());
 });
 
 readInput.addEventListener("change", (event) => {
-  event.target.value.toLowerCase() === "true" ? (read = true) : (read = false);
+  event.target.value.trim().toLowerCase() === "true"
+    ? (read = true)
+    : (read = false);
 });
 
 function Book(id, title, author, pages, read) {
@@ -46,8 +60,8 @@ function Book(id, title, author, pages, read) {
     throw Error("You must use the 'new' operator to call the constructor!");
   }
   this.id = id;
-  this.title = title;
-  this.author = author;
+  this.title = title.toUpperCase();
+  this.author = author.toUpperCase();
   this.pages = pages;
   this.read = read;
   this.info = function () {
@@ -64,6 +78,7 @@ function addBook(id, title, author, pages, read) {
 }
 
 function displayBooks() {
+  booksSection.innerHTML = ""; // Clear all before displaying again
   myLibrary.forEach((book) => {
     const bookArticle = document.createElement("article");
     bookArticle.innerHTML = `<h2>${book.title}</h2><h3>${book.author}</h3><h4>${book.pages} pages</h4>`;
