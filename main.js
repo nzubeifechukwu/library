@@ -8,7 +8,15 @@ const submitBtn = document.querySelector(".submit-btn");
 const titleInput = document.querySelector("#title");
 const authorInput = document.querySelector("#author");
 const pagesInput = document.querySelector("#pages");
-const readInput = document.querySelector("#read");
+const yesRadio = document.querySelector("#yes");
+const noRadio = document.querySelector("#no");
+
+// clicking outside dialog box closes it
+// dialog.addEventListener("click", (event) => {
+//   if (event.target === dialog) {
+//     dialog.close();
+//   }
+// });
 
 newBookBtn.addEventListener("click", () => {
   dialog.showModal();
@@ -18,9 +26,7 @@ closeBtn.addEventListener("click", () => {
   dialog.close();
 });
 
-submitBtn.addEventListener("click", (event) => {
-  event.preventDefault();
-
+submitBtn.addEventListener("click", () => {
   // Don't add book with undefined attributes
   if (title && author && pages) {
     // Don't add previously added book
@@ -46,13 +52,15 @@ authorInput.addEventListener("change", (event) => {
 });
 
 pagesInput.addEventListener("change", (event) => {
-  pages = parseInt(event.target.value.trim());
+  pages = parseInt(event.target.value);
 });
 
-readInput.addEventListener("change", (event) => {
-  event.target.value.trim().toLowerCase() === "true"
-    ? (read = true)
-    : (read = false);
+yesRadio.addEventListener("change", () => {
+  read = true;
+});
+
+noRadio.addEventListener("change", () => {
+  read = false;
 });
 
 function Book(id, title, author, pages, read) {
@@ -83,6 +91,7 @@ function displayBooks() {
     const bookArticle = document.createElement("article");
     bookArticle.innerHTML = `<h2>${book.title}</h2><h3>${book.author}</h3><h4>${book.pages} pages</h4>`;
     booksSection.appendChild(bookArticle);
+    console.log(book.info());
   });
 }
 
