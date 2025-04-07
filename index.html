@@ -10,42 +10,47 @@
     <header><h1>Library</h1></header>
     <main>
       <section class="books"></section>
-      <section>
-        <dialog>
-          <p>Fill in details for new book</p>
-          <form action="" method="dialog">
-            <fieldset>
-              <div>
-                <label for="title">Title</label
-                ><input type="text" name="title" id="title" />
-              </div>
-              <div>
-                <label for="author">Author</label
-                ><input type="text" name="author" id="author" />
-              </div>
-              <div>
-                <label for="pages">No. of Pages</label
-                ><input type="number" name="pages" id="pages" min="1" />
-              </div>
-            </fieldset>
-            <fieldset>
-              <legend>Read the book?</legend>
-              <div>
-                <input type="radio" name="read" id="yes" value="true" />
-                <label for="yes">Yes</label>
-              </div>
-              <div>
-                <input type="radio" name="read" id="no" value="false" />
-                <label for="yes">No</label>
-              </div>
-            </fieldset>
-            <button type="button" class="submit-btn">Submit</button>
-          </form>
-          <button type="button" class="close-btn">Close</button>
-        </dialog>
+      <section class="new-book-btn-section">
         <button class="new-book-btn">New Book</button>
       </section>
+      <dialog>
+        <p>Fill in details for new book</p>
+        <form action="" method="dialog">
+          <fieldset>
+            <div>
+              <label for="title">Title</label
+              ><input type="text" name="title" id="title" />
+            </div>
+            <div>
+              <label for="author">Author</label
+              ><input type="text" name="author" id="author" />
+            </div>
+            <div>
+              <label for="pages">No. of Pages</label
+              ><input type="number" name="pages" id="pages" min="1" />
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Read the book?</legend>
+            <div>
+              <input type="radio" name="read" id="yes" value="true" />
+              <label for="yes">Yes</label>
+            </div>
+            <div>
+              <input type="radio" name="read" id="no" value="false" />
+              <label for="yes">No</label>
+            </div>
+          </fieldset>
+          <button type="button" class="submit-btn">Submit</button>
+        </form>
+        <button type="button" class="close-btn">Close</button>
+      </dialog>
     </main>
+    <footer>
+      <a href="https://github.com/nzubeifechukwu/library" target="_blank"
+        >&copy; Nzube Ifechukwu</a
+      >
+    </footer>
     <script src="main.js"></script>
   </body>
 </html>

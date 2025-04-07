@@ -1,4 +1,4 @@
-/* html {
+html {
   box-sizing: border-box;
 }
 
@@ -8,4 +8,78 @@
   box-sizing: inherit;
   padding: 0;
   margin: 0;
-} */
+}
+
+body {
+  padding: 50px;
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-color: #edede9;
+  color: #772e25;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.books {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+}
+
+article {
+  border: 4px solid #d6ccc2;
+  border-radius: 15px;
+  background-color: #f5ebe0;
+  padding: 15px;
+}
+
+button {
+  background-color: #772e25;
+  color: #edede9;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+article button {
+  margin-top: 20px;
+}
+
+article p,
+article h4,
+article h3 {
+  margin-top: 10px;
+}
+
+#remove {
+  margin-right: 10px;
+}
+.new-book-btn-section {
+  display: flex;
+  justify-content: center;
+}
+
+.new-book-btn {
+  margin-top: 30px;
+  padding: 30px;
+  border-radius: 20px;
+  background-color: #333d29;
+  color: #f8edeb;
+  text-transform: uppercase;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 4px;
+  font-weight: 600;
+}
+
+footer {
+  text-align: center;
+  margin-top: 50px;
+}
