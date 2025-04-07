@@ -79,6 +79,9 @@ function Book(id, title, author, pages, read) {
       ? `${this.title} by ${this.author}, ${this.pages} pages, read it.`
       : `${this.title} by ${this.author}, ${this.pages} pages, yet to read it.`;
   };
+  this.changeReadStatus = function () {
+    return this.read ? (this.read = false) : (this.read = true);
+  };
 }
 
 function addBook(id, title, author, pages, read) {
@@ -93,14 +96,27 @@ function displayBooks() {
   myLibrary.forEach((book) => {
     const bookArticle = document.createElement("article");
     bookArticle.setAttribute("id", book.id);
-    bookArticle.innerHTML = `<h2>${book.title}</h2><h3>${book.author}</h3><h4>${book.pages} pages</h4><button type="button">Remove</button>`;
+    bookArticle.innerHTML = `<h2>${book.title}</h2><h3>${book.author}</h3><h4>${
+      book.pages
+    } pages</h4><p>Read it? ${
+      book.read ? "Yes" : "No"
+    }</p><button type="button" id="remove">Remove</button><button type="button" id="change-read">Change Read Status</button>`;
     booksSection.appendChild(bookArticle);
 
-    const removeBtn = bookArticle.lastChild;
+    const removeBtn = bookArticle.querySelector("#remove");
+    const readStatus = bookArticle.querySelector("#change-read");
+
     removeBtn.addEventListener("click", () => {
       const index = myLibrary.findIndex((book) => book.id === bookArticle.id);
       myLibrary.splice(index, 1);
       bookArticle.remove();
+    });
+
+    readStatus.addEventListener("click", () => {
+      book.changeReadStatus();
+      bookArticle.querySelector("p").textContent = `Read it? ${
+        book.read ? "Yes" : "No"
+      }`;
     });
   });
 }
