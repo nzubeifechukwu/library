@@ -20,20 +20,6 @@ const noRadio = document.querySelector("#no");
 //   }
 // });
 
-addBook(self.crypto.randomUUID(), "Dream Count", "CNA", 400, false);
-addBook(self.crypto.randomUUID(), "Purple Hibiscus", "CNA", 200, true);
-addBook(self.crypto.randomUUID(), "Half of a Yellow Sun", "CNA", 600, false);
-displayBooks();
-
-removeButtons.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const index = myLibrary.findIndex((book) => book.id === btn.dataset.index);
-    myLibrary.splice(index, 1);
-    displayBooks();
-    console.log(myLibrary);
-  });
-});
-
 newBookBtn.addEventListener("click", () => {
   dialog.showModal();
 });
@@ -102,11 +88,24 @@ function addBook(id, title, author, pages, read) {
 }
 
 function displayBooks() {
+  // console.log(myLibrary);
   booksSection.innerHTML = ""; // Clear all before displaying again
   myLibrary.forEach((book) => {
     const bookArticle = document.createElement("article");
-    bookArticle.innerHTML = `<h2>${book.title}</h2><h3>${book.author}</h3><h4>${book.pages} pages</h4><button type="button" data-index="${book.id}">Remove</button>`;
+    bookArticle.setAttribute("id", book.id);
+    bookArticle.innerHTML = `<h2>${book.title}</h2><h3>${book.author}</h3><h4>${book.pages} pages</h4><button type="button">Remove</button>`;
     booksSection.appendChild(bookArticle);
-    removeButtons.push(bookArticle.lastChild);
+
+    const removeBtn = bookArticle.lastChild;
+    removeBtn.addEventListener("click", () => {
+      const index = myLibrary.findIndex((book) => book.id === bookArticle.id);
+      myLibrary.splice(index, 1);
+      bookArticle.remove();
+    });
   });
 }
+
+addBook(self.crypto.randomUUID(), "Dream Count", "CNA", 400, false);
+addBook(self.crypto.randomUUID(), "Purple Hibiscus", "CNA", 200, true);
+addBook(self.crypto.randomUUID(), "Half of a Yellow Sun", "CNA", 600, false);
+displayBooks();
