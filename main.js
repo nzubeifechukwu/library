@@ -1,5 +1,4 @@
 const myLibrary = [];
-const removeButtons = [];
 let title, author, pages, read; // for saving new book info
 
 const booksSection = document.querySelector(".books");
