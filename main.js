@@ -99,7 +99,7 @@ function displayBooks() {
       book.pages
     } pages</h4><p>Read it? ${
       book.read ? "Yes" : "No"
-    }</p><button type="button" id="remove">Remove</button><button type="button" id="change-read">Change Read Status</button>`;
+    }</p><div><button type="button" id="remove">Remove</button><button type="button" id="change-read">Change Read Status</button></div>`;
     booksSection.appendChild(bookArticle);
 
     const removeBtn = bookArticle.querySelector("#remove");
@@ -120,7 +120,75 @@ function displayBooks() {
   });
 }
 
-addBook(self.crypto.randomUUID(), "Dream Count", "CNA", 400, false);
-addBook(self.crypto.randomUUID(), "Purple Hibiscus", "CNA", 200, true);
-addBook(self.crypto.randomUUID(), "Half of a Yellow Sun", "CNA", 600, false);
+addBook(
+  self.crypto.randomUUID(),
+  "Dream Count",
+  "Chimamanda Ngozi Adichie",
+  400,
+  false
+);
+addBook(
+  self.crypto.randomUUID(),
+  "Purple Hibiscus",
+  "Chimamanda Ngozi Adichie",
+  200,
+  true
+);
+addBook(
+  self.crypto.randomUUID(),
+  "Half of a Yellow Sun",
+  "Chimamanda Ngozi Adichie",
+  600,
+  false
+);
+addBook(
+  self.crypto.randomUUID(),
+  "Americanah",
+  "Chimamanda Ngozi Adichie",
+  400,
+  false
+);
+addBook(
+  self.crypto.randomUUID(),
+  "The Thing Around Your Neck",
+  "Chimamanda Ngozi Adichie",
+  200,
+  true
+);
+addBook(
+  self.crypto.randomUUID(),
+  "The Accidental Tourist",
+  "Anne Tyler",
+  600,
+  false
+);
+addBook(
+  self.crypto.randomUUID(),
+  "Dinner at the Homesick Restaurant",
+  "Anne Tyler",
+  200,
+  true
+);
+addBook(
+  self.crypto.randomUUID(),
+  "A Good Man Is Hard to Find",
+  "Flannery O'Connor",
+  600,
+  false
+);
+addBook(
+  self.crypto.randomUUID(),
+  "Everything That Rises Must Converge",
+  "Flannery O'Connor",
+  600,
+  false
+);
+addBook(self.crypto.randomUUID(), "Arrow of God", "Chinua Achebe", 200, true);
+addBook(
+  self.crypto.randomUUID(),
+  "Things Fall Apart",
+  "Chinua Achebe",
+  600,
+  false
+);
 displayBooks();

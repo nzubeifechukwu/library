@@ -34,6 +34,9 @@ article {
   border-radius: 15px;
   background-color: #f5ebe0;
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 button {
