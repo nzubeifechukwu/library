@@ -11,7 +11,7 @@ See the [live demo](https://nzubeifechukwu-library.netlify.app/).
 
 ## Inspiration
 
-This [library app project](https://www.theodinproject.com/lessons/node-path-javascript-library) is [The Odin Project](https://www.theodinproject.com/)'s Full-Stack Web Development (JavaScript) path.
+This [library app project](https://www.theodinproject.com/lessons/node-path-javascript-library) is part of [The Odin Project](https://www.theodinproject.com/)'s Full-Stack Web Development (JavaScript) path.
 
 ## Contact
 
