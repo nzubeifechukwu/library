@@ -123,5 +123,4 @@ function displayBooks() {
 addBook(self.crypto.randomUUID(), "Dream Count", "CNA", 400, false);
 addBook(self.crypto.randomUUID(), "Purple Hibiscus", "CNA", 200, true);
 addBook(self.crypto.randomUUID(), "Half of a Yellow Sun", "CNA", 600, false);
-addBook(self.crypto.randomUUID(), "Dream Count", "CNA", 400, false);
 displayBooks();
