@@ -1,6 +1,6 @@
 # Library
 
-An app that lets you add and remove keeps, and keep track of books you have read.
+An app that lets you add and remove books, and keep track of books you have read.
 
 See the [live demo](https://nzubeifechukwu-library.netlify.app/).
 
