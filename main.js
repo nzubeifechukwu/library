@@ -64,24 +64,44 @@ noRadio.addEventListener("change", () => {
   read = false;
 });
 
-function Book(id, title, author, pages, read) {
-  if (!new.target) {
-    throw Error("You must use the 'new' operator to call the constructor!");
+// Using class
+class Book {
+  constructor(id, title, author, pages, read) {
+    this.id = id;
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
   }
-  this.id = id;
-  this.title = title.toUpperCase();
-  this.author = author.toUpperCase();
-  this.pages = pages;
-  this.read = read;
-  this.info = function () {
+  info() {
     return this.read
       ? `${this.title} by ${this.author}, ${this.pages} pages, read it.`
       : `${this.title} by ${this.author}, ${this.pages} pages, yet to read it.`;
-  };
-  this.changeReadStatus = function () {
+  }
+  changeReadStatus() {
     return this.read ? (this.read = false) : (this.read = true);
-  };
+  }
 }
+
+// Using object contstructor
+// function Book(id, title, author, pages, read) {
+//   if (!new.target) {
+//     throw Error("You must use the 'new' operator to call the constructor!");
+//   }
+//   this.id = id;
+//   this.title = title.toUpperCase();
+//   this.author = author.toUpperCase();
+//   this.pages = pages;
+//   this.read = read;
+//   this.info = function () {
+//     return this.read
+//       ? `${this.title} by ${this.author}, ${this.pages} pages, read it.`
+//       : `${this.title} by ${this.author}, ${this.pages} pages, yet to read it.`;
+//   };
+//   this.changeReadStatus = function () {
+//     return this.read ? (this.read = false) : (this.read = true);
+//   };
+// }
 
 function addBook(id, title, author, pages, read) {
   // take params, create a book then store it in the array
